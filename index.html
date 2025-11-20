@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="歡迎來到 Ling 的個人空間！在這裡，我將分享我的專業背景、學習發展的實戰經驗，以及如何透過跨文化交流，實現個人成長與心靈蛻變的精彩歷程。。">
   <title>Ling 的個人網頁</title>
@@ -12,10 +12,15 @@
         margin: 0; 
         padding: 0; 
         max-width: 100%; 
-        overflow-x: hidden; /* **修正點 1: 新增此行以防止水平捲軸** */
+        overflow-x: hidden; /* **確保所有斷點無水平捲動的關鍵修正** */
     }
     body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", Arial, sans-serif; line-height: 1.6; color: #f0f0f0; background-color: #1a1a2e; }
-    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 16px; }
+    .container { 
+        width: 90%; 
+        max-width: 1200px; 
+        margin: 0 auto; 
+        padding: 16px; 
+    }
     img { max-width: 100%; height: auto; display: block; }
     a { color: #4ea1d3; text-decoration: none; }
     a:hover { text-decoration: underline; }
@@ -35,6 +40,8 @@
         gap: 10px 16px; 
         align-items: center; 
         margin-top: 10px; /* 小螢幕分隔 */
+        width: 100%; /* **確保 nav 在小螢幕上佔滿寬度以避免擠壓溢出** */
+        justify-content: space-between; /* 讓連結平均分散，避免部分連結溢出 */
     }
     .logo { 
         font-weight: bold; 
@@ -44,6 +51,8 @@
     }
     .nav-link { 
         white-space: nowrap; /* 避免導航連結文字換行 */
+        font-size: 0.9rem; /* 稍微縮小字體以應對 320px 寬度 */
+        padding: 4px 0;
     }
     /* CSS:HEADER/NAV-END */
 
@@ -86,7 +95,12 @@
     @media (min-width: 768px) {
         /* Header 調整 */
         .site-header { flex-wrap: nowrap; }
-        .nav { margin-top: 0; }
+        .nav { 
+            margin-top: 0; 
+            width: auto; /* 恢復自動寬度 */
+            justify-content: flex-start; /* 恢復預設對齊 */
+        }
+        .nav-link { font-size: 1rem; }
 
         /* About 調整 */
         .section-about .about-content { flex-direction: row; text-align: left; justify-content: space-between; }
@@ -94,6 +108,10 @@
         .section-about img { flex: 1; margin-top: 0; }
         .section-about .buttons { justify-content: flex-start; }
     }
+
+    @media (min-width: 1440px) {
+        /* 1440px 以上的特殊優化，此處沿用 768px 設定，因基礎設置已保證不溢出 */
+    }
     /* CSS:RWD-END */
   </style>
 </head>
