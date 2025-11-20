@@ -2,36 +2,135 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Ling 的個人網頁，分享她的專業背景、學習與發展經驗，以及個人成長與跨文化交流的心得。">
   <title>Ling 的個人網頁</title>
   <style>
+    /* CSS:BASE-START */
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; max-width: 100%; }
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", Arial, sans-serif; line-height: 1.6; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", Arial, sans-serif; line-height: 1.6; color: #f0f0f0; background-color: #1a1a2e; }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 16px; }
     img { max-width: 100%; height: auto; display: block; }
-    .container { width: 1920px; margin: 0 auto; padding: 16px; }
-    nav a { margin-right: 12px; text-decoration: none; }
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-    .col-12 { grid-column: span 12; }
-    @media (min-width: 768px) { .col-md-6 { grid-column: span 6; } }
-    .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+    a { color: #4ea1d3; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .page { display: flex; flex-direction: column; min-height: 100vh; }
+    /* CSS:BASE-END */
+
+    /* CSS:HERO-START */
+    .section-hero { padding: 80px 0; text-align: center; }
+    .section-hero h1 { font-size: 2rem; margin-bottom: 16px; color: #ffffff; }
+    .section-hero p { font-size: 1rem; color: #dcdcdc; max-width: 700px; margin: 0 auto; }
+    /* CSS:HERO-END */
+
+    /* CSS:ABOUT-START */
+    .section-about { padding: 60px 0; background-color: #162447; }
+    .section-about .about-content { display: flex; flex-direction: column; gap: 24px; align-items: center; text-align: center; }
+    .section-about h2 { font-size: 1.8rem; margin-bottom: 16px; }
+    .section-about p { font-size: 1rem; color: #e0e0e0; max-width: 600px; }
+    .section-about ul { list-style-type: disc; padding-left: 20px; color: #f0f0f0; }
+    .section-about .buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
+    .section-about .buttons a { display: inline-block; padding: 10px 20px; background-color: #4ea1d3; color: #fff; border-radius: 8px; transition: background 0.3s; }
+    .section-about .buttons a:hover { background-color: #2d8ecf; }
+    .section-about img { border-radius: 12px; margin-top: 24px; max-width: 100%; }
+    /* CSS:ABOUT-END */
+
+    /* CSS:SKILLS-START */
+    .section-skills { padding: 60px 0; background-color: #1f4068; }
+    /* CSS:SKILLS-END */
+
+    /* CSS:PROJECTS-START */
+    .section-projects { padding: 60px 0; background-color: #1b1b2f; }
+    /* CSS:PROJECTS-END */
+
+    /* CSS:CONTACT-START */
+    .section-contact { padding: 60px 0; background-color: #162447; }
+    /* CSS:CONTACT-END */
+
+    /* CSS:RWD-START */
+    @media (min-width: 768px) {
+      .section-about .about-content { flex-direction: row; text-align: left; justify-content: space-between; }
+      .section-about .about-text, .section-about img { flex: 1; }
+      .section-about .about-text { margin-right: 24px; }
+    }
+    /* CSS:RWD-END */
   </style>
 </head>
 <body>
-  <header class="container" role="banner">
-    <nav aria-label="主選單">
-      <a href="#about">關於我</a>
-      <a href="#projects">作品集</a>
-      <a href="https://example.com/blog">技術部落格</a>
-      <a href="mailto:me@example.com">聯絡我</a>
-    </nav>
-    <h1>你好，我是 Ling：目前正在參加六角學院 Vibe Coding 體驗營</h1>
-    <p>歡迎來到我的個人網站！這裡整理了學習紀錄、Side Project 與實作心得。</p>
-  </header>
+  <div class="page">
+    <header class="site-header container" role="banner">
+      <nav class="nav" aria-label="主選單">
+        <span class="logo">Ling · Frontend Dev</span>
+        <a class="nav-link" href="#hero">首頁</a>
+        <a class="nav-link" href="#about">關於我</a>
+        <a class="nav-link" href="#skills">技能</a>
+        <a class="nav-link" href="#projects">作品集</a>
+        <a class="nav-link" href="#contact">聯絡我</a>
+      </nav>
+    </header>
 
-  <footer class="container" role="contentinfo">
-    <p>© 2025 My Portfolio · <a href="#">GitHub</a></p>
-    <img src="https://www.fertilome.com/media/klowrey/Article%20Images/Tree.jpg" alt="tree">
-  </footer>
+    <main>
+      <!-- SECTION:HERO-START -->
+      <section id="hero" class="section section-hero">
+        <h1>你好，我是 Ling：目前正在參加六角學院 Vibe Coding 體驗營</h1>
+        <p>歡迎來到我的個人網站！這裡整理了學習紀錄、Side Project 與實作心得。</p>
+      </section>
+      <!-- SECTION:HERO-END -->
+
+      <!-- SECTION:ABOUT-START -->
+      <section id="about" class="section section-about" aria-labelledby="about-heading">
+        <div class="container about-content">
+          <div class="about-text">
+            <h2 id="about-heading">關於我</h2>
+            <p>我目前從事前端工程與教學工作，主要技能包括 HTML、CSS、JavaScript 以及跨文化教育與學習設計。</p>
+            <p>我重視溝通，喜歡教學，也喜歡把複雜的概念講清楚，協助團隊與學生理解與成長。</p>
+            <ul>
+              <li>前端開發與網頁設計能力</li>
+              <li>跨文化溝通與教學經驗</li>
+              <li>問題分析與解決能力</li>
+            </ul>
+            <div class="buttons">
+              <a href="#projects">查看作品集</a>
+              <a href="#contact">聯絡我</a>
+            </div>
+          </div>
+          <img src="https://source.unsplash.com/400x400/?developer,laptop" alt="在筆電前工作的工程師">
+        </div>
+      </section>
+      <!-- SECTION:ABOUT-END -->
+
+      <!-- SECTION:SKILLS-START -->
+      <section id="skills" class="section section-skills" aria-labelledby="skills-heading">
+        <div class="container">
+          <h2 id="skills-heading">技能（之後會用 Section SDD 替換）</h2>
+          <p>這裡目前是 Skills 區的占位內容，之後會用另一個 Prompt 產生正式內容，請把新的 section 程式碼整段貼回來，取代這一區。</p>
+        </div>
+      </section>
+      <!-- SECTION:SKILLS-END -->
+
+      <!-- SECTION:PROJECTS-START -->
+      <section id="projects" class="section section-projects" aria-labelledby="projects-heading">
+        <div class="container">
+          <h2 id="projects-heading">作品集（之後會用 Section SDD 替換）</h2>
+          <p>這裡目前是 Projects 區的占位內容，之後會用另一個 Prompt 產生正式內容，請把新的 section 程式碼整段貼回來，取代這一區。</p>
+        </div>
+      </section>
+      <!-- SECTION:PROJECTS-END -->
+
+      <!-- SECTION:CONTACT-START -->
+      <section id="contact" class="section section-contact" aria-labelledby="contact-heading">
+        <div class="container">
+          <h2 id="contact-heading">聯絡我（之後會用 Section SDD 替換）</h2>
+          <p>這裡目前是 Contact 區的占位內容，之後會用另一個 Prompt 產生正式內容，請把新的 section 程式碼整段貼回來，取代這一區。</p>
+        </div>
+      </section>
+      <!-- SECTION:CONTACT-END -->
+    </main>
+
+    <footer class="container" role="contentinfo">
+      <p>© 2025 My Portfolio · <a href="https://github.com/yourname">GitHub</a></p>
+      <img src="https://source.unsplash.com/600x200/?tree" alt="樹">
+    </footer>
+  </div>
 </body>
 </html>
