@@ -6,113 +6,131 @@
   <meta name="description" content="歡迎來到 Ling 的個人空間！在這裡，我將分享我的專業背景、學習發展的實戰經驗，以及如何透過跨文化交流，實現個人成長與心靈蛻變的精彩歷程。。">
   <title>Ling 的個人網頁</title>
   <style>
-    /* CSS:BASE-START */
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { 
-        margin: 0; 
-        padding: 0; 
-        max-width: 100%; 
-        overflow-x: hidden; /* **確保所有斷點無水平捲動的關鍵修正** */
-    }
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", Arial, sans-serif; line-height: 1.6; color: #f0f0f0; background-color: #1a1a2e; }
-    .container { 
-        width: 90%; 
-        max-width: 1200px; 
-        margin: 0 auto; 
-        padding: 16px; 
-    }
-    img { max-width: 100%; height: auto; display: block; }
-    a { color: #4ea1d3; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .page { display: flex; flex-direction: column; min-height: 100vh; }
-    /* CSS:BASE-END */
+  /* CSS:BASE-START */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { 
+    margin: 0; 
+    padding: 0; 
+    max-width: 100%; 
+    overflow-x: hidden; /* 確保無水平捲軸 */
+}
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", Arial, sans-serif; line-height: 1.6; color: #f0f0f0; background-color: #1a1a2e; }
+.container { 
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 16px; 
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: #4ea1d3; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page { display: flex; flex-direction: column; min-height: 100vh; }
+/* CSS:BASE-END */
 
-    /* CSS:HEADER/NAV-START */
+/* CSS:HEADER/NAV-START */
+.site-header { 
+    display: flex; 
+    /* 修正點: 在小螢幕時先讓 logo 和 nav 上下堆疊 */
+    flex-direction: column; 
+    align-items: center; 
+    padding-top: 16px; /* 保持與 container 一致的頂部間距 */
+    padding-bottom: 16px;
+}
+.logo { 
+    font-weight: bold; 
+    font-size: 1.2rem; 
+    color: #ffffff; 
+    margin-bottom: 10px; /* 在小螢幕上與 nav 分隔 */
+    width: 100%; /* 讓 logo 獨佔一行 */
+    text-align: center;
+}
+.nav { 
+    display: flex; 
+    flex-wrap: wrap; 
+    width: 100%; /* **關鍵修正: 確保 nav 佔滿 container 寬度** */
+    justify-content: space-around; /* **關鍵修正: 使用 space-around 平均分配連結空間** */
+    gap: 0; /* **關鍵修正: 移除 flex 項目之間的固定 gap** */
+    align-items: center; 
+}
+.nav-link { 
+    white-space: nowrap;
+    font-size: 0.9rem;
+    padding: 4px 0;
+    flex-grow: 1; /* 讓每個連結平均分攤 nav 的寬度 */
+    text-align: center;
+}
+/* CSS:HEADER/NAV-END */
+
+/* CSS:HERO-START */
+.section-hero { padding: 80px 0; text-align: center; }
+.section-hero h1 { font-size: 2rem; margin-bottom: 16px; color: #ffffff; }
+.section-hero p { font-size: 1rem; color: #dcdcdc; max-width: 700px; margin: 0 auto; }
+/* CSS:HERO-END */
+
+/* CSS:ABOUT-START */
+.section-about { padding: 60px 0; background-color: #162447; }
+.section-about .about-content { display: flex; flex-direction: column; gap: 24px; align-items: center; text-align: center; }
+.section-about h2 { font-size: 1.8rem; margin-bottom: 16px; }
+.section-about p { font-size: 1rem; color: #e0e0e0; max-width: 600px; }
+.section-about ul { list-style-type: disc; padding-left: 20px; color: #f0f0f0; }
+.section-about .buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
+.section-about .buttons a { display: inline-block; padding: 10px 20px; background-color: #4ea1d3; color: #fff; border-radius: 8px; transition: background 0.3s; }
+.section-about .buttons a:hover { background-color: #2d8ecf; }
+.section-about img { border-radius: 12px; margin-top: 24px; max-width: 100%; }
+/* CSS:ABOUT-END */
+
+/* CSS:SKILLS-START */
+.section-skills { padding: 60px 0; background-color: #1f4068; }
+/* CSS:SKILLS-END */
+
+/* CSS:PROJECTS-START */
+.section-projects { padding: 60px 0; background-color: #1b1b2f; }
+/* CSS:PROJECTS-END */
+
+/* CSS:CONTACT-START */
+.section-contact { padding: 60px 0; background-color: #162447; }
+/* CSS:CONTACT-END */
+
+/* CSS:FOOTER-START */
+.site-footer { padding: 16px 0; text-align: center; }
+.site-footer p { margin-bottom: 8px; font-size: 0.9rem; color: #dcdcdc; }
+/* CSS:FOOTER-END */
+
+/* CSS:RWD-START */
+@media (min-width: 768px) {
+    /* Header 調整：恢復水平排版 */
     .site-header { 
-        display: flex; 
+        flex-direction: row; 
         justify-content: space-between; 
-        align-items: center; 
-        flex-wrap: wrap; /* 允許在小螢幕上換行 */
-    }
-    .nav { 
-        display: flex; 
-        flex-wrap: wrap; 
-        gap: 10px 16px; 
-        align-items: center; 
-        margin-top: 10px; /* 小螢幕分隔 */
-        width: 100%; /* **確保 nav 在小螢幕上佔滿寬度以避免擠壓溢出** */
-        justify-content: space-between; /* 讓連結平均分散，避免部分連結溢出 */
     }
     .logo { 
-        font-weight: bold; 
-        font-size: 1.2rem; 
-        color: #ffffff; 
         margin-right: auto;
+        margin-bottom: 0;
+        width: auto;
+        text-align: left;
+    }
+    .nav { 
+        width: auto; /* 恢復自動寬度 */
+        gap: 16px; /* 恢復間距 */
+        justify-content: flex-start;
     }
     .nav-link { 
-        white-space: nowrap; /* 避免導航連結文字換行 */
-        font-size: 0.9rem; /* 稍微縮小字體以應對 320px 寬度 */
-        padding: 4px 0;
+        font-size: 1rem;
+        flex-grow: 0; /* 停止平均分攤寬度 */
     }
-    /* CSS:HEADER/NAV-END */
 
-    /* CSS:HERO-START */
-    .section-hero { padding: 80px 0; text-align: center; }
-    .section-hero h1 { font-size: 2rem; margin-bottom: 16px; color: #ffffff; }
-    .section-hero p { font-size: 1rem; color: #dcdcdc; max-width: 700px; margin: 0 auto; }
-    /* CSS:HERO-END */
+    /* About 調整 */
+    .section-about .about-content { flex-direction: row; text-align: left; justify-content: space-between; }
+    .section-about .about-text { flex: 1; margin-right: 24px; }
+    .section-about img { flex: 1; margin-top: 0; }
+    .section-about .buttons { justify-content: flex-start; }
+}
 
-    /* CSS:ABOUT-START */
-    .section-about { padding: 60px 0; background-color: #162447; }
-    .section-about .about-content { display: flex; flex-direction: column; gap: 24px; align-items: center; text-align: center; }
-    .section-about h2 { font-size: 1.8rem; margin-bottom: 16px; }
-    .section-about p { font-size: 1rem; color: #e0e0e0; max-width: 600px; }
-    .section-about ul { list-style-type: disc; padding-left: 20px; color: #f0f0f0; }
-    .section-about .buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
-    .section-about .buttons a { display: inline-block; padding: 10px 20px; background-color: #4ea1d3; color: #fff; border-radius: 8px; transition: background 0.3s; }
-    .section-about .buttons a:hover { background-color: #2d8ecf; }
-    .section-about img { border-radius: 12px; margin-top: 24px; max-width: 100%; }
-    /* CSS:ABOUT-END */
-
-    /* CSS:SKILLS-START */
-    .section-skills { padding: 60px 0; background-color: #1f4068; }
-    /* CSS:SKILLS-END */
-
-    /* CSS:PROJECTS-START */
-    .section-projects { padding: 60px 0; background-color: #1b1b2f; }
-    /* CSS:PROJECTS-END */
-
-    /* CSS:CONTACT-START */
-    .section-contact { padding: 60px 0; background-color: #162447; }
-    /* CSS:CONTACT-END */
-
-    /* CSS:FOOTER-START */
-    .site-footer { padding: 16px 0; text-align: center; }
-    .site-footer p { margin-bottom: 8px; font-size: 0.9rem; color: #dcdcdc; }
-    /* CSS:FOOTER-END */
-
-    /* CSS:RWD-START */
-    @media (min-width: 768px) {
-        /* Header 調整 */
-        .site-header { flex-wrap: nowrap; }
-        .nav { 
-            margin-top: 0; 
-            width: auto; /* 恢復自動寬度 */
-            justify-content: flex-start; /* 恢復預設對齊 */
-        }
-        .nav-link { font-size: 1rem; }
-
-        /* About 調整 */
-        .section-about .about-content { flex-direction: row; text-align: left; justify-content: space-between; }
-        .section-about .about-text { flex: 1; margin-right: 24px; }
-        .section-about img { flex: 1; margin-top: 0; }
-        .section-about .buttons { justify-content: flex-start; }
-    }
-
-    @media (min-width: 1440px) {
-        /* 1440px 以上的特殊優化，此處沿用 768px 設定，因基礎設置已保證不溢出 */
-    }
-    /* CSS:RWD-END */
+@media (min-width: 1440px) {
+    /* 1440px 以上沒有額外的結構性溢出風險 */
+}
+    /* CSS:RWD-END */
+    
   </style>
 </head>
 <body>
